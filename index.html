@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saabsoft Pull Type API Documentation | Integration Guide & Endpoints</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="https://www.saabsoft.com/src/images/favicon.ico">
+    <meta name="description" content="Official Saabsoft Pull Type API Documentation. Learn how to integrate, authenticate, and fetch data using Saabsoft APIs with practical examples and endpoint references.">
+    <meta name="keywords" content="Saabsoft API, Pull Type API, Saabsoft documentation, REST API integration, API endpoints, SaaS API docs">
+    <meta name="author" content="Saabsoft">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Saabsoft Pull Type API Documentation">
+    <meta property="og:description" content="Official API documentation for Saabsoft Pull Type integration. Authentication, endpoints, parameters and examples.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.saabsoft.com/api-docs/">
+    <meta property="og:image" content="https://www.saabsoft.com/src/images/SAABSOFT_LOGO.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Saabsoft Pull Type API Documentation">
+    <meta name="twitter:description" content="Official Saabsoft API documentation with examples and integration guide.">
+    <meta name="twitter:image" content="https://www.saabsoft.com/src/images/SAABSOFT_LOGO.webp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="apple-touch-icon" href="https://www.saabsoft.com/src/images/favicon.ico">
+    
+    
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            scroll-behavior: smooth;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 350px;
+            background: #fff;
+            border-right: 1px solid #ddd;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            padding: 20px;
+            margin-right: 8rem;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 1.2rem;
+            color: #000;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #555;
+            font-size: 0.9rem;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar a:hover {
+            background: #f0f7ff;
+            color: #0056b3;
+        }
+
+        .sidebar .nav-group {
+            margin-bottom: 25px;
+        }
+
+        .sidebar .nav-group-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            color: #999;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* Content Area */
+        .main-content {
+            flex: 1;
+            max-width: 900px;
+            padding: 40px 60px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            color: #000;
+            margin-top: 0;
+        }
+
+        h2 {
+            margin-top: 50px;
+            color: #0056b3;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            scroll-margin-top: 20px;
+        }
+
+        h3 {
+            margin-top: 30px;
+            color: #444;
+        }
+
+        .base-url {
+            background: #eef;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .endpoint-box {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .method {
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            color: #fff;
+            margin-right: 10px;
+        }
+
+        .get {
+            background: #28a745;
+        }
+
+        .post {
+            background: #007bff;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: #fff;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #f2f2f2;
+        }
+
+        .note {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        @media (max-width: 1000px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="sidebar">
+        <h2>Documentation</h2>
+
+        <div class="nav-group">
+            <div class="nav-group-title">Getting Started</div>
+            <ul>
+                <li><a href="#client-credentials">1. Client Credentials</a></li>
+                <li><a href="#generate-token">2. Generate API Token</a></li>
+                <li><a href="#required-headers">3. Required Headers</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-group-title">Properties</div>
+            <ul>
+                <li><a href="#properties-apis">Properties Overview</a></li>
+                <li><a href="#available-filters">Available Filters</a></li>
+                <li><a href="#sorting-pagination">Sorting & Pagination</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-group-title">Supporting Data</div>
+            <ul>
+                <li><a href="#supporting-endpoints">All Supporting Endpoints</a></li>
+                <li><a href="#property-types">Property Types</a></li>
+                <li><a href="#communities">Communities</a></li>
+                <li><a href="#developers">Developers</a></li>
+                <li><a href="#locations">Locations</a></li>
+                <li><a href="#cities">Cities</a></li>
+                <li><a href="#sub-communities">Sub-communities</a></li>
+                <li><a href="#buildings">Buildings</a></li>
+                <li><a href="#listing-agents">Listing Agents</a></li>
+                <li><a href="#private-amenities">Private Amenities</a></li>
+                <li><a href="#commercial-amenities">Commercial Amenities</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <h1>API Documentation</h1>
+
+        <div class="base-url">
+            Base URL: https://youtupia.net/SingleListingApp/api
+        </div>
+
+        <h2 id="client-credentials">1. Client Credentials</h2>
+        <p>Steps to Generate Client ID & Client Secret:</p>
+        <ol>
+            <li>Go to <strong>Website Settings</strong> from Settings toggle.</li>
+            <li>Open website settings (if permitted) and click <strong>Save</strong>.</li>
+            <li>On page reload, the <strong>Client ID</strong> and <strong>Client Secret Key</strong> will appear.</li>
+        </ol>
+        <div class="note">
+            <strong>Note:</strong> API Token is valid for 2 hours and can be generated every 60 seconds.
+        </div>
+        <br>
+
+        <div class="image">
+            <img src="assets/Screenshot 2026-03-03 151041.png" alt="" width="100%">
+        </div>
+        <br>
+        <br>
+
+        <div class="image">
+            <img src="assets/e1d5395b-91fa-4abc-b4a3-1a5427349527.jpg" alt="" width="100%">
+        </div>
+
+        <h2 id="generate-token">2. Generate API Token</h2>
+        <div class="endpoint-box">
+            <span class="method post">POST</span> <code>/auth/token</code>
+        </div>
+        <!-- <p><strong>Full URL:</strong> https://youtupia.net/SingleListingApp/api/auth/token</p> -->
+        <p><strong>Header:</strong> <code>Content-Type: application/json</code></p>
+        <h3>Request Body:</h3>
+        <pre>{
+  "client_id": "your-client-id",
+  "client_secret": "your-client-secret-key"
+}</pre>
+
+        <p><strong>Sample Screenshot:</strong></p>
+        <div class="image">
+            <img src="assets/Screenshot 2026-03-03 151507.png" alt="" width="100%">
+        </div>
+
+        <h2 id="required-headers">3. Required Headers</h2>
+        <p>All protected endpoints require these headers:</p>
+        <ul>
+            <li><code>X-API-Token: your-api-token</code></li>
+            <li><code>X-Client-ID: your-client-id</code></li>
+        </ul>
+        <p><em>Without these, access will be denied.</em></p>
+
+        <h2 id="properties-apis">4. Properties APIs</h2>
+
+        <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Property Details API</h3>
+        <div class="endpoint-box">
+            <span class="method get">GET</span> <code>/get-property-detail/{seo_url}</code>
+        </div>
+
+        <p><strong>Sample Screenshot:</strong></p>
+        <div class="image">
+            <img src="assets/Screenshot 2026-03-03 1522030.png" alt="" width="100%">
+        </div>
+        
+        <br>
+        
+        <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Properties List API</h3>
+        <div class="endpoint-box">
+            <span class="method get">GET</span> <code>/get-data-properties?order[0][column]=0&order[0][dir]=asc</code>
+        </div>
+        
+        <p><strong>Sample Screenshot:</strong></p>
+        <div class="image">
+            <img src="assets/Screenshot 2026-03-03 152200.png" alt="" width="100%">
+        </div>
+
+        <h3 id="available-filters">Available Filters</h3>
+        <table>
+            <tr>
+                <th>Parameter</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>price</code></td>
+                <td>Price range (min,max)</td>
+            </tr>
+            <tr>
+                <td><code>category</code></td>
+                <td>R: Residential, S: Commercial</td>
+            </tr>
+            <tr>
+                <td><code>purpose</code></td>
+                <td>R: Rent, S: Sale</td>
+            </tr>
+            <tr>
+                <td><code>unit_no</code></td>
+                <td>Unit number</td>
+            </tr>
+            <tr>
+                <td><code>property_type</code></td>
+                <td>Property type abbreviation (e.g., AM, PK)</td>
+            </tr>
+            <tr>
+                <td><code>owner</code></td>
+                <td>Listing agent ID</td>
+            </tr>
+            <tr>
+                <td><code>developers</code></td>
+                <td>Developer name</td>
+            </tr>
+            <tr>
+                <td><code>location</code></td>
+                <td>Community name</td>
+            </tr>
+            <tr>
+                <td><code>sub_community</code></td>
+                <td>Sub-community name</td>
+            </tr>
+            <tr>
+                <td><code>building</code></td>
+                <td>Building name</td>
+            </tr>
+            <tr>
+                <td><code>listing_title</code></td>
+                <td>Text in the listing title</td>
+            </tr>
+            <tr>
+                <td><code>bedrooms</code></td>
+                <td>Number of bedrooms</td>
+            </tr>
+            <tr>
+                <td><code>listing_id</code></td>
+                <td>Listing IDs (comma-separated reference numbers)</td>
+            </tr>
+            <tr>
+                <td><code>permit_number</code></td>
+                <td>Permit number</td>
+            </tr>
+        </table>
+
+        <h3 id="sorting-pagination">Sorting & Pagination</h3>
+        <table>
+            <tr>
+                <th>Parameter</th>
+                <th>Description / Values</th>
+            </tr>
+            <tr>
+                <td><code>Sort By</code></td>
+                <td>unit_id, listing_status, listing_id, listing_title, size, property_type, price,
+                    Listing_Last_Modified_Date</td>
+            </tr>
+            <tr>
+                <td><code>order[0][column]</code></td>
+                <td>Column index (0 to 6)</td>
+            </tr>
+            <tr>
+                <td><code>order[0][dir]</code></td>
+                <td>Sort direction (asc or desc)</td>
+            </tr>
+            <tr>
+                <td><code>limit</code></td>
+                <td>Number of results per page (up to 100)</td>
+            </tr>
+            <tr>
+                <td><code>page</code></td>
+                <td>Page number (e.g., page=1, page=2)</td>
+            </tr>
+        </table>
+
+        <h2 id="supporting-endpoints">5. Supporting Endpoints</h2>
+
+        <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Property Types API</h3>
+        <div id="property-types" class="endpoint-box">
+            <span class="method get">GET</span> <code>/get-property-type-data</code>
+        </div>
+        <p><strong>Description:</strong> Property types list</p>
+        <p><strong>Sample Screenshot:</strong></p>
+        <div class="image">
+            <img src="assets/get-property-type-data.png" alt="Property Type Data" width="100%">
+        </div>
+        <br>
+
+        <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Communities API</h3>
+        <div id="communities" class="endpoint-box">
+            <span class="method get">GET</span> <code>/get-communities-data</code>
+        </div>
+        <p><strong>Description:</strong> Communities list</p>
+        <p><strong>Sample Screenshot:</strong></p>
+        <div class="image">
+            <img src="assets/get-communities-data.png" alt="Communities Data" width="100%">
+        </div>
+        <br>
+
+        <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Developers API</h3>
+        <div id="developers" class="endpoint-box">
+            <span class="method get">GET</span> <code>/get-developers-data</code>
+        </div>
+        <p><strong>Description:</strong> Developers list</p>
+        <p><strong>Sample Screenshot:</strong></p>
+        <div class="image">
+            <img src="assets/get-developers-data.png" alt="Developers Data" width="100%">
+        </div>
+        <br>
+
+        <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Locations API</h3>
+        <div id="locations" class="endpoint-box">
+            <span class="method get">GET</span> <code>/get-locations-data</code>
+        </div>
+        <p><strong>Description:</strong> Locations list</p>
+        <p><strong>Sample Screenshot:</strong></p>
+        <div class="image">
+            <img src="assets/get-locations-data.png" alt="Locations Data" width="100%">
+        </div>
+        <br>
+
+        <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Cities API</h3>
+        <div id="cities" class="endpoint-box">
+            <span class="method get">GET</span> <code>/get-cities-data</code>
+        </div>
+        <p><strong>Description:</strong> Cities list</p>
+        <p><strong>Sample Screenshot:</strong></p>
+        <div class="image">
+            <img src="assets/get-cities-data.png" alt="Cities Data" width="100%">
+        </div>
+        <br>
+
+        <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Sub-communities API</h3>
+        <div id="sub-communities" class="endpoint-box">
+            <span class="method get">GET</span> <code>/get-sub-communities-data</code>
+        </div>
+        <p><strong>Description:</strong> Sub-communities list</p>
+        <p><strong>Sample Screenshot:</strong></p>
+        <div class="image">
+            <img src="assets/get-sub-communities-data.png" alt="Sub-communities Data" width="100%">
+        </div>
+        <br>
+
+        <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Buildings API</h3>
+        <div id="buildings" class="endpoint-box">
+            <span class="method get">GET</span> <code>/get-buildings-data</code>
+        </div>
+        <p><strong>Description:</strong> Buildings list</p>
+        <p><strong>Sample Screenshot:</strong></p>
+        <div class="image">
+            <img src="assets/get-buildings-data.png" alt="Buildings Data" width="100%">
+        </div>
+        <br>
+
+        <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Listing Agents API</h3>
+        <div id="listing-agents" class="endpoint-box">
+            <span class="method get">GET</span> <code>/get-listing-agents-data</code>
+        </div>
+        <p><strong>Description:</strong> Listing agents list</p>
+        <p><strong>Sample Screenshot:</strong></p>
+        <div class="image">
+            <img src="assets/get-listing-agents-data.png" alt="Listing Agents Data" width="100%">
+        </div>
+        <br>
+
+        <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Private Amenities API</h3>
+        <div id="private-amenities" class="endpoint-box">
+            <span class="method get">GET</span> <code>/get-private-amenities-data</code>
+        </div>
+        <p><strong>Description:</strong> Private amenities list</p>
+        <p><strong>Sample Screenshot:</strong></p>
+        <div class="image">
+            <img src="assets/get-private-amenities-data.png" alt="Private Amenities Data" width="100%">
+        </div>
+        <br>
+
+        <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Commercial Amenities API</h3>
+        <div id="commercial-amenities" class="endpoint-box">
+            <span class="method get">GET</span> <code>/get-commercial-amenities-data</code>
+        </div>
+        <p><strong>Description:</strong> Commercial amenities list</p>
+        <p><strong>Sample Screenshot:</strong></p>
+        <div class="image">
+            <img src="assets/get-commercial-amenities-data.png" alt="Commercial Amenities Data" width="100%">
+        </div>
+        <br>
+
+    </main>
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Saabsoft Pull Type API Documentation",
+      "description": "Official documentation for Saabsoft Pull Type API integration.",
+      "author": {
+        "@type": "Organization",
+        "name": "Saabsoft"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Saabsoft",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.saabsoft.com/src/images/SAABSOFT_LOGO.webp"
+        }
+      }
+    }
+    </script>
+</body>
+
+</html>
