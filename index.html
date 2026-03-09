@@ -252,10 +252,10 @@
             <ul>
                 <li><a href="#supporting-endpoints">All Supporting Endpoints</a></li>
                 <li><a href="#property-types">Property Types</a></li>
-                <li><a href="#communities">Communities</a></li>
                 <li><a href="#developers">Developers</a></li>
                 <li><a href="#locations">Locations</a></li>
                 <li><a href="#cities">Cities</a></li>
+                <li><a href="#communities">Communities</a></li>
                 <li><a href="#sub-communities">Sub-communities</a></li>
                 <li><a href="#buildings">Buildings</a></li>
                 <li><a href="#listing-agents">Listing Agents</a></li>
@@ -275,13 +275,11 @@
         <h2 id="client-credentials">1. Client Credentials</h2>
         <p>Steps to Generate Client ID & Client Secret:</p>
         <ol>
-            <li>Go to <strong>Website Settings</strong> from Settings toggle.</li>
-            <li>Open website settings (if permitted) and click <strong>Save</strong>.</li>
-            <li>On page reload, the <strong>Client ID</strong> and <strong>Client Secret Key</strong> will appear.</li>
+            <li>Go to <strong>Website Settings</strong> from Settings menu.</li>
+            <li>Click on Generate Token.</li>
+            <li>You will get your  <strong>Client ID</strong> and  <strong>Client Secret</strong>.</li>
         </ol>
-        <div class="note">
-            <strong>Note:</strong> API Token is valid for 2 hours and can be generated every 60 seconds.
-        </div>
+        
         <br>
 
         <div class="image">
@@ -291,7 +289,7 @@
         <br>
 
         <div class="image">
-            <img src="assets/e1d5395b-91fa-4abc-b4a3-1a5427349527.jpg" alt="" width="100%">
+            <img src="assets/e707be36-806c-496f-8ebd-08e4fdc5b00e.png" alt="" width="100%">
         </div>
 
         <h2 id="generate-token">2. Generate API Token</h2>
@@ -311,7 +309,7 @@
             <img src="assets/Screenshot 2026-03-03 151507.png" alt="" width="100%">
         </div>
 
-        <h2 id="required-headers">3. Required Headers</h2>
+        <h2 id="required-headers">Required Headers</h2>
         <p>All protected endpoints require these headers:</p>
         <ul>
             <li><code>X-API-Token: your-api-token</code></li>
@@ -319,21 +317,10 @@
         </ul>
         <p><em>Without these, access will be denied.</em></p>
 
-        <h2 id="properties-apis">4. Properties APIs</h2>
-
-        <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Property Details API</h3>
-        <div class="endpoint-box">
-            <span class="method get">GET</span> <code>/get-property-detail/{seo_url}</code>
+        <div class="note">
+            <strong>Note:</strong> API Token is valid for 2 hours.
         </div>
-
-        <p><strong>Sample Screenshot:</strong></p>
-        <div class="image">
-            <img src="assets/Screenshot 2026-03-03 1522030.png" alt="" width="100%">
-        </div>
-        
-        <br>
-        
-        <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Properties List API</h3>
+        <h2 style="background-color: #0000002f; padding: 10px; border-radius: 5px;" id="properties-apis"> 3.Properties List API</h2>
         <div class="endpoint-box">
             <span class="method get">GET</span> <code>/get-data-properties?order[0][column]=0&order[0][dir]=asc</code>
         </div>
@@ -435,6 +422,21 @@
                 <td>Page number (e.g., page=1, page=2)</td>
             </tr>
         </table>
+        
+        
+        <h2>4. Properties APIs</h2>
+
+        <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Property Details API</h3>
+        <div class="endpoint-box">
+            <span class="method get">GET</span> <code>/get-property-detail/{seo_url}</code>
+        </div>
+
+        <p><strong>Sample Screenshot:</strong></p>
+        <div class="image">
+            <img src="assets/Screenshot 2026-03-03 1522030.png" alt="" width="100%">
+        </div>
+        
+        <br>
 
         <h2 id="supporting-endpoints">5. Supporting Endpoints</h2>
 
@@ -446,17 +448,6 @@
         <p><strong>Sample Screenshot:</strong></p>
         <div class="image">
             <img src="assets/get-property-type-data.png" alt="Property Type Data" width="100%">
-        </div>
-        <br>
-
-        <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Communities API</h3>
-        <div id="communities" class="endpoint-box">
-            <span class="method get">GET</span> <code>/get-communities-data</code>
-        </div>
-        <p><strong>Description:</strong> Communities list</p>
-        <p><strong>Sample Screenshot:</strong></p>
-        <div class="image">
-            <img src="assets/get-communities-data.png" alt="Communities Data" width="100%">
         </div>
         <br>
 
@@ -492,7 +483,16 @@
             <img src="assets/get-cities-data.png" alt="Cities Data" width="100%">
         </div>
         <br>
-
+        <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Communities API</h3>
+        <div id="communities" class="endpoint-box">
+            <span class="method get">GET</span> <code>/get-communities-data</code>
+        </div>
+        <p><strong>Description:</strong> Communities list</p>
+        <p><strong>Sample Screenshot:</strong></p>
+        <div class="image">
+            <img src="assets/get-communities-data.png" alt="Communities Data" width="100%">
+        </div>
+        <br>
         <h3 style="background-color: #0000002f; padding: 10px; border-radius: 5px;">Sub-communities API</h3>
         <div id="sub-communities" class="endpoint-box">
             <span class="method get">GET</span> <code>/get-sub-communities-data</code>
